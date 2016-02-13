@@ -619,10 +619,9 @@ object SkinnyMicroBase {
 
   import ServletApiImplicits._
   import scala.collection.JavaConverters._
+  import skinny.concurrent.ExecutionContextFactory
 
-  lazy val defaultExecutionContext: ExecutionContext = {
-    ExecutionContext.fromExecutor(Executors.newFixedThreadPool(300))
-  }
+  lazy val defaultExecutionContext: ExecutionContext = ExecutionContextFactory.create(100)
 
   /**
    * A key for request attribute that contains any exception that might have occured
