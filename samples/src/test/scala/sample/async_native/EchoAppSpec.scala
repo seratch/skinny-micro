@@ -33,6 +33,7 @@ class EchoAppSpec extends SkinnyFunSpec with JSONStringOps {
 
     it("shows html") {
       get("/html") {
+        println(body)
         status should equal(200)
         body should equal("""<html><body>Hello, Martin</body></html>""")
         header("Content-Type") should equal("text/html; charset=UTF-8")
